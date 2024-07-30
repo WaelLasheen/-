@@ -20,10 +20,10 @@ class textFeild extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 12),
-      padding: const EdgeInsets.symmetric(horizontal: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
           border: Border.all(color: Colors.grey, width: 1.2),
-          borderRadius: BorderRadius.circular(18)),
+          borderRadius: BorderRadius.circular(24)),
       child: Row(
         children: [
           obscureIcon,
@@ -38,7 +38,7 @@ class textFeild extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            width: 8,
+            width: 12,
           ),
           Icon(
             icon,
