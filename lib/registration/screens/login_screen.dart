@@ -3,6 +3,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kiswa/consts/colors.dart';
+import 'package:kiswa/registration/screens/signup_screen.dart';
 import 'package:kiswa/registration/widgets/text_feild.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -122,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 TextButton(
                   onPressed: () {
-                    // modify it latter for login
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SignupScreen(),),);
                   },
                   child: const Text(
                     'انشاء حساب',

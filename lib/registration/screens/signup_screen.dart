@@ -5,6 +5,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kiswa/consts/colors.dart';
 import 'package:kiswa/consts/images.dart';
+import 'package:kiswa/registration/screens/login_screen.dart';
 import 'package:kiswa/registration/widgets/login_with.dart';
 import 'package:kiswa/registration/widgets/text_feild.dart';
 
@@ -134,7 +135,7 @@ class _SignupScreenState extends State<SignupScreen> {
               children: [
                 TextButton(
                   onPressed: () {
-                    // modify it latter for login
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const LoginScreen(),));
                   },
                   child: const Text(
                     'تسجيل الدخول',
