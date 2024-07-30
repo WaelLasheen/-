@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kiswa/splash/logo.dart';
+import 'package:kiswa/splash/page1.dart';
+
+import 'package:kiswa/splash/page2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,15 +11,12 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text("Welcome to Kiswa ,Farah!"),
-        ),
-      ),
+    return MaterialApp(
+      theme: ThemeData(fontFamily: "Cairo"),
+      debugShowCheckedModeBanner: false,
+      home: page1(),
     );
   }
 }

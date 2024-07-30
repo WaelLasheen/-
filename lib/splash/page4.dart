@@ -1,0 +1,70 @@
+import 'package:flutter/material.dart';
+import 'package:kiswa/splash/page1.dart';
+
+class Page4 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.only(top: 120),
+        child: Column(
+          children: [
+            Center(
+              child: Image.asset(
+                "assets/images/image4.png",
+                height: 400,
+                width: 400,
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 10, right: 10),
+              child: Text(
+                ".معا نستطيع أن نصنع فرقا:تعاونا مع الشركاء يضمن توزيع الملابس بأفضل طريقه ممكنه",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Image.asset("assets/images/Frame4.png"),
+            SizedBox(
+              height: 60,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                MaterialButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                  color: Color(0xFF84BF60),
+                  textColor: Colors.black,
+                  onPressed: () {},
+                  child: Text(
+                    "تسجيل الدخول",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                MaterialButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(60)),
+                  color: Color(0xFF84BF60),
+                  textColor: Colors.black,
+                  onPressed: () {},
+                  child: Text(
+                    "إنشاء حساب",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
