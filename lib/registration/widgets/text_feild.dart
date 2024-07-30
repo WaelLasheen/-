@@ -4,9 +4,17 @@ class textFeild extends StatelessWidget {
   String hint;
   IconData icon;
   TextEditingController controller;
-  bool obscureText ; Widget obscureIcon;
-  
-  textFeild({super.key , required this.hint, required this.icon, required this.controller, required this.obscureText, required this.obscureIcon});
+  bool obscureText;
+  Widget obscureIcon;
+
+  textFeild({
+      super.key,
+      required this.hint,
+      required this.icon,
+      required this.controller,
+      required this.obscureText,
+      required this.obscureIcon
+    });
 
   @override
   Widget build(BuildContext context) {
