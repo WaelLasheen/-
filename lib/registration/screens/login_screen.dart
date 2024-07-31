@@ -3,6 +3,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kiswa/consts/colors.dart';
+import 'package:kiswa/registration/screens/forget_password_screen.dart';
 import 'package:kiswa/registration/screens/signup_screen.dart';
 import 'package:kiswa/registration/widgets/text_feild.dart';
 
@@ -32,6 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         title: const Text("تسجيل الدخول" ,style: TextStyle(fontSize: 28 ,fontWeight: FontWeight.bold),),
         centerTitle: true,
+        automaticallyImplyLeading: false,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -71,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 TextButton(
                   onPressed: () {
-                    // add it latter for forgot password
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ForgetPassword(),),);
                   },
                   child: const Text(
                     'نسيت كلمة المرور؟',

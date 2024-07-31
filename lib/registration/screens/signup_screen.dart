@@ -35,6 +35,7 @@ class _SignupScreenState extends State<SignupScreen> {
       appBar: AppBar(
         title: const Text("إنشاء حساب" ,style: TextStyle(fontSize: 28 ,fontWeight: FontWeight.bold),),
         centerTitle: true,
+        automaticallyImplyLeading: false,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
