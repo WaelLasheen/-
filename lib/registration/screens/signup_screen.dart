@@ -72,18 +72,6 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
             Row(
               children: [
-                TextButton(
-                  onPressed: () {
-                    // add it latter for forgot password
-                  },
-                  child: const Text(
-                    'نسيت كلمة المرور؟',
-                    style: TextStyle(
-                        color: green,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
                 const Spacer(),
                 const Text(
                   'تذكرني',
