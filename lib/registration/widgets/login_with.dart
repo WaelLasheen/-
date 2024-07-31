@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:kiswa/consts/colors.dart';
 
+// ignore: must_be_immutable
 class LoginWith extends StatelessWidget {
   String image;
   Function()? onTap;
