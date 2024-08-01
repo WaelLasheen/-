@@ -9,7 +9,7 @@ class Page2 extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 120, right: 220),
+            padding: const EdgeInsets.only(top: 120, right: 220),
             child: MaterialButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {

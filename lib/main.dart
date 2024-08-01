@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Cairo"),
       debugShowCheckedModeBanner: false,
-      home: page1(),
+      home: Logo(),
     );
   }
 }

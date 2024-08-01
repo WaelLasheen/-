@@ -28,11 +28,11 @@ class Page4 extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Image.asset("assets/images/Frame4.png"),
-            SizedBox(
+            const SizedBox(
               height: 60,
             ),
             Row(
@@ -43,8 +43,10 @@ class Page4 extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30)),
                   color: Color(0xFF84BF60),
                   textColor: Colors.black,
-                  onPressed: () {},
-                  child: Text(
+                  onPressed: () {
+                    // Navigator.push(context, MaterialPageRoute(builder: (context)=>))
+                  },
+                  child: const Text(
                     "تسجيل الدخول",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
@@ -54,8 +56,10 @@ class Page4 extends StatelessWidget {
                       borderRadius: BorderRadius.circular(60)),
                   color: Color(0xFF84BF60),
                   textColor: Colors.black,
-                  onPressed: () {},
-                  child: Text(
+                  onPressed: () {
+                    // Navigator.push(context, MaterialPageRoute(builder: (context)=>))
+                  },
+                  child: const Text(
                     "إنشاء حساب",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
