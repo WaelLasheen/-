@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kiswa/home/screens/home_screen.dart';
 import 'package:kiswa/registration/screens/login_screen.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: HomeScreen(),
     );
   }
 }
