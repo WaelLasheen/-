@@ -9,7 +9,7 @@ class DetailFeild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12 ,horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
@@ -17,21 +17,32 @@ class DetailFeild extends StatelessWidget {
             padding: const EdgeInsets.only(right: 12),
             child: Text(
               title,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                color: black,
+              ),
             ),
           ),
-          const SizedBox(height: 8,),
+          const SizedBox(height: 8),
           Container(
             width: MediaQuery.of(context).size.width * .9,
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
             alignment: Alignment.centerRight,
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey, width: 1.2 ,),
-              borderRadius: BorderRadius.circular(30)
+              border: Border.all(
+                color: Colors.grey,
+                width: 1.2,
+              ),
+              borderRadius: BorderRadius.circular(30),
             ),
             child: Text(
               value,
-              style: const TextStyle(fontWeight: FontWeight.normal, fontSize: 20),
+              style: const TextStyle(
+                fontWeight: FontWeight.normal,
+                fontSize: 18,
+                color: black,
+              ),
             ),
           ),
         ],
