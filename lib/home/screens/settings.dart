@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:kiswa/consts/colors.dart';
 import 'package:kiswa/consts/images.dart';
+import 'package:kiswa/home/screens/personal_details.dart';
 import 'package:kiswa/home/widgets/setting_buttom.dart';
 
 class Settings extends StatelessWidget {
@@ -27,12 +27,42 @@ class Settings extends StatelessWidget {
               'اسراء جمال', // will come from backend in future
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
-            SettingButton(text: 'المعلومات الشخصية', icon: Icons.info, function: () {},),
-            SettingButton(text: 'الاشعارات', icon: Icons.notifications, function: () {},),
-            SettingButton(text: ' اللغة', icon: Icons.language, function: () {},),
-            SettingButton(text: 'مركز المساعدة', icon: Icons.help, function: () {},),
-            SettingButton(text: 'الخصوصية و الامان', icon: Icons.lock, function: () {},),
-            SettingButton(text: 'تسجيل الخروج', icon: Icons.power_settings_new_outlined, function: () {},),
+            SettingButton(
+              text: 'المعلومات الشخصية',
+              icon: Icons.info,
+              function: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const PersonalDetails(),
+                  ),
+                );
+              },
+            ),
+            SettingButton(
+              text: 'الاشعارات',
+              icon: Icons.notifications,
+              function: () {},
+            ),
+            SettingButton(
+              text: ' اللغة',
+              icon: Icons.language,
+              function: () {},
+            ),
+            SettingButton(
+              text: 'مركز المساعدة',
+              icon: Icons.help,
+              function: () {},
+            ),
+            SettingButton(
+              text: 'الخصوصية و الامان',
+              icon: Icons.lock,
+              function: () {},
+            ),
+            SettingButton(
+              text: 'تسجيل الخروج',
+              icon: Icons.power_settings_new_outlined,
+              function: () {},
+            ),
           ],
         ),
       ],
