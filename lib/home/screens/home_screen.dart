@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:kiswa/chat/chat.dart';
 import 'package:kiswa/consts/colors.dart';
 import 'package:kiswa/donations/screen/donation_screen.dart';
+import 'package:kiswa/homescreens/screen1.dart';
 import 'package:kiswa/setting/screens/settings.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,8 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
       body: <Widget>[
         const Settings(),
         const DonationScreen(),
-        const Center(child: Text('الرسائل')),
-        const Center(child: Text('الرئيسية')),
+        chat1(),
+        screen1(),
       ][currentPageIndex],
       bottomNavigationBar: CurvedNavigationBar(
         items: const [

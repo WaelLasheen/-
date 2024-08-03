@@ -11,14 +11,14 @@ import 'package:kiswa/authentication/screens/login_screen.dart';
 import 'package:kiswa/authentication/widgets/login_with.dart';
 import 'package:kiswa/authentication/widgets/text_feild.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+class SighupScreen extends StatefulWidget {
+  const SighupScreen({super.key});
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  State<SighupScreen> createState() => _SighupScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
+class _SighupScreenState extends State<SighupScreen> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
   bool _obscureText = true;

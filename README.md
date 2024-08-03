@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # kiswa
 
 A new Flutter project.
@@ -14,3 +15,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# -
+كسوة هو تطبيق يهدف إلى إعادة استخدام الملابس من خلال تجديدها، بهدف الحفاظ على البيئة وتحقيق الاستدامة. يمكن للمستخدمين تقديم ملابسهم القديمة للتطبيق، والذي يقوم بتنظيفها وإصلاحها لتكون جاهزة للاستخدام مرة أخرى. بالتالي، يساهم التطبيق في تقليل الهدر والتلوث الناتج عن التخلص من الملابس القديمة. 😊🌿
+>>>>>>> 4ee2930e5c8bb561b613a5ac9065c0f931a9ae44
