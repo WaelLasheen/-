@@ -48,7 +48,9 @@ class AddDonation extends StatelessWidget {
           margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 18),
           width: MediaQuery.of(context).size.width,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              print(description.text);
+            },
             style: const ButtonStyle(
               backgroundColor: MaterialStatePropertyAll(green),
             ),
