@@ -5,9 +5,9 @@ import 'package:flutter/widgets.dart';
 import 'package:kiswa/consts/colors.dart';
 import 'package:kiswa/firebase/authentication/auth_services.dart';
 import 'package:kiswa/home/screens/home_screen.dart';
-import 'package:kiswa/registration/screens/forget_password_screen.dart';
-import 'package:kiswa/registration/screens/signup_screen.dart';
-import 'package:kiswa/registration/widgets/text_feild.dart';
+import 'package:kiswa/authentication/screens/forget_password_screen.dart';
+import 'package:kiswa/authentication/screens/signup_screen.dart';
+import 'package:kiswa/authentication/widgets/text_feild.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

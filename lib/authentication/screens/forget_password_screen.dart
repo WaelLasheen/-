@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kiswa/consts/colors.dart';
 import 'package:kiswa/consts/images.dart';
-import 'package:kiswa/registration/widgets/text_feild.dart';
+import 'package:kiswa/authentication/widgets/text_feild.dart';
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});

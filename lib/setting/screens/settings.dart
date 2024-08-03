@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:kiswa/authentication/screens/login_screen.dart';
 import 'package:kiswa/consts/images.dart';
+import 'package:kiswa/firebase/authentication/auth_services.dart';
 import 'package:kiswa/setting/screens/personal_details.dart';
 import 'package:kiswa/setting/widgets/setting_buttom.dart';
 
@@ -61,7 +63,10 @@ class Settings extends StatelessWidget {
             SettingButton(
               text: 'تسجيل الخروج',
               icon: Icons.power_settings_new_outlined,
-              function: () {},
+              function: () async{
+                await AuthServices().signOut();
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const LoginScreen()));
+              },
             ),
           ],
         ),
