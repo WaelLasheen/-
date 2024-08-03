@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kiswa/consts/colors.dart';
 import 'package:kiswa/firebase/authentication/auth_services.dart';
+import 'package:kiswa/home/screens/home_screen.dart';
 import 'package:kiswa/registration/screens/forget_password_screen.dart';
 import 'package:kiswa/registration/screens/signup_screen.dart';
 import 'package:kiswa/registration/widgets/text_feild.dart';
@@ -109,15 +110,22 @@ class _LoginScreenState extends State<LoginScreen> {
               margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 18),
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
-                onPressed: () {
-                  var user = AuthServices()
+                onPressed: () async {
+                  var user = await AuthServices()
                       .signInWithEmailAndPassword(_email.text, _password.text);
                   if (user != null) {
                     // Sign-in successful
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Sign-in Successful')));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Sign-in Successful')));
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => const HomeScreen(),
+                      ),
+                    );
                   } else {
                     // Sign-in failed
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Sign-in Failed')));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Sign-in Failed')));
                   }
 
                   print(_email.text);

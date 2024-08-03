@@ -13,7 +13,7 @@ class AuthServices{
       User? user = result.user;
       return user;
     } catch (e) {
-      print(e.toString());
+      print("Error in sign up "+e.toString());
       return null;
     }
   }
@@ -27,7 +27,7 @@ class AuthServices{
       User? user = result.user;
       return user;
     } catch (e) {
-      print(e.toString());
+      print("Error in sign in "+e.toString());
       return null;
     }
   }

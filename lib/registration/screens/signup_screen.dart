@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -5,6 +6,8 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kiswa/consts/colors.dart';
 import 'package:kiswa/consts/images.dart';
+import 'package:kiswa/firebase/authentication/auth_services.dart';
+import 'package:kiswa/home/screens/home_screen.dart';
 import 'package:kiswa/registration/screens/login_screen.dart';
 import 'package:kiswa/registration/widgets/login_with.dart';
 import 'package:kiswa/registration/widgets/text_feild.dart';
@@ -33,7 +36,10 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("إنشاء حساب" ,style: TextStyle(fontSize: 28 ,fontWeight: FontWeight.bold),),
+        title: const Text(
+          "إنشاء حساب",
+          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
@@ -88,15 +94,30 @@ class _SignupScreenState extends State<SignupScreen> {
               ],
             ),
             Container(
-              margin: const EdgeInsets.symmetric(vertical: 20 ,horizontal: 18),
+              margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 18),
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
-                onPressed: () {
-                  // modify it latter for login  <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+                onPressed: () async {
+                  var user = await AuthServices().registerWithEmailAndPassword(
+                      _email.text, _password.text);
+                  if (user != null) {
+                    // Sign-in successful
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Sign-up Successful')));
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => const HomeScreen(),
+                      ),
+                    );
+                  } else {
+                    // Sign-in failed
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Sign-up Failed')));
+                  }
+
                   print(_email.text);
                   print(_password.text);
                 },
-
                 style: const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(green),
                 ),
@@ -113,9 +134,9 @@ class _SignupScreenState extends State<SignupScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // handel function later
-                LoginWith(image:Google ,onTap: (){}),
-                LoginWith(image: Facebook ,onTap: (){}),
-                LoginWith(image: LinkedIn ,onTap: (){}),
+                LoginWith(image: Google, onTap: () {}),
+                LoginWith(image: Facebook, onTap: () {}),
+                LoginWith(image: LinkedIn, onTap: () {}),
               ],
             ),
             const Spacer(),
@@ -124,7 +145,9 @@ class _SignupScreenState extends State<SignupScreen> {
               children: [
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const LoginScreen(),));
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => const LoginScreen(),
+                    ));
                   },
                   child: const Text(
                     'تسجيل الدخول',
