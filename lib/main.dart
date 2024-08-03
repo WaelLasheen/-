@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kiswa/firebase_options.dart';
 import 'package:kiswa/home/screens/home_screen.dart';
-import 'package:kiswa/registration/screens/login_screen.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
