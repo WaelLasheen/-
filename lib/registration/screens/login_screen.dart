@@ -3,6 +3,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kiswa/consts/colors.dart';
+import 'package:kiswa/firebase/authentication/auth_services.dart';
 import 'package:kiswa/registration/screens/forget_password_screen.dart';
 import 'package:kiswa/registration/screens/signup_screen.dart';
 import 'package:kiswa/registration/widgets/text_feild.dart';
@@ -31,7 +32,10 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("تسجيل الدخول" ,style: TextStyle(fontSize: 28 ,fontWeight: FontWeight.bold),),
+        title: const Text(
+          "تسجيل الدخول",
+          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
@@ -73,7 +77,11 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ForgetPassword(),),);
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const ForgetPassword(),
+                      ),
+                    );
                   },
                   child: const Text(
                     'نسيت كلمة المرور؟',
@@ -98,15 +106,23 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
             Container(
-              margin: const EdgeInsets.symmetric(vertical: 20 ,horizontal: 18),
+              margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 18),
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
                 onPressed: () {
-                  // modify it latter for login  <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+                  var user = AuthServices()
+                      .signInWithEmailAndPassword(_email.text, _password.text);
+                  if (user != null) {
+                    // Sign-in successful
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Sign-in Successful')));
+                  } else {
+                    // Sign-in failed
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Sign-in Failed')));
+                  }
+
                   print(_email.text);
                   print(_password.text);
                 },
-
                 style: const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(green),
                 ),
@@ -125,7 +141,11 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SignupScreen(),),);
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const SignupScreen(),
+                      ),
+                    );
                   },
                   child: const Text(
                     'انشاء حساب',
