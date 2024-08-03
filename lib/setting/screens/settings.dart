@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kiswa/consts/images.dart';
-import 'package:kiswa/home/screens/personal_details.dart';
-import 'package:kiswa/home/widgets/setting_buttom.dart';
+import 'package:kiswa/setting/screens/personal_details.dart';
+import 'package:kiswa/setting/widgets/setting_buttom.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});

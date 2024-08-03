@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kiswa/consts/colors.dart';
 import 'package:kiswa/consts/images.dart';
-import 'package:kiswa/home/widgets/detail_feild.dart';
+import 'package:kiswa/setting/widgets/detail_feild.dart';
 
 class PersonalDetails extends StatelessWidget {
   const PersonalDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // data will come from backend in future
     return Scaffold(
       appBar: AppBar(
         title: const Text(
