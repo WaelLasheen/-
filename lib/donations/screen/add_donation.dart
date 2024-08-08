@@ -73,7 +73,12 @@ class _AddDonationState extends State<AddDonation> {
                   await uploadImage();
                   print(">>>>>>>>>>>>>>>  url  "+_imgUrl);
                   await addDonation();
-                  setState(() => _loading = false);
+                  setState((){
+                    _loading = false;
+                    _imgUrl = "";
+                    _image = null;
+                    description.clear();
+                  });
                 } else {
                   showDialog(
                     context: context,
