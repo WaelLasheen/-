@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kiswa/consts/colors.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class AddDonation extends StatefulWidget {
   AddDonation({super.key});
@@ -14,6 +15,7 @@ class AddDonation extends StatefulWidget {
 class _AddDonationState extends State<AddDonation> {
   final TextEditingController description = TextEditingController();
   XFile? _image;
+  String _imgUrl = "";
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,9 @@ class _AddDonationState extends State<AddDonation> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20), color: litegrey),
             // child: const Icon(Icons.add_a_photo),
-            child: _image==null? const Icon(Icons.add_a_photo) : Image.file(File(_image!.path)),
+            child: _image == null
+                ? const Icon(Icons.add_a_photo)
+                : Image.file(File(_image!.path)),
           ),
         ),
         // custom button to use in all screens
@@ -60,6 +64,61 @@ class _AddDonationState extends State<AddDonation> {
           child: ElevatedButton(
             onPressed: () {
               print(description.text);
+              if (_image != null) {
+                print(_image!.path);
+                uploadImage();
+              } else {
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    content: Container(
+                      height: MediaQuery.of(context).size.width * .1,
+                      width: MediaQuery.of(context).size.width * .1,
+                      decoration: const BoxDecoration(
+                        color: white,
+                      ),
+                      alignment: Alignment.centerRight,
+                      child: const Text(
+                        "يجب تحديد صورة",
+                        style: TextStyle(
+                          color: green,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22,
+                        ),
+                      ),
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text(
+                          "اغلاق",
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          pickImg();
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text(
+                          "تحديد",
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }
             },
             style: const ButtonStyle(
               backgroundColor: MaterialStatePropertyAll(green),
@@ -76,17 +135,31 @@ class _AddDonationState extends State<AddDonation> {
       ],
     );
   }
-  
-  void pickImg() async{
+
+  void pickImg() async {
     XFile? image = await ImagePicker().pickImage(source: ImageSource.gallery);
     setState(() {
       _image = image;
     });
+
+    print("image path: ${_image!.path}");
   }
 
-  void uploadImage(){
-    // upload image to firebase storage
-    // folder path in fire storage gs://kiswa-6cd90.appspot.com
-    //will be added in future    
+  void uploadImage() async{
+    Reference ref = FirebaseStorage.instance
+        .ref()
+        .child("images")
+        .child(DateTime.now().microsecondsSinceEpoch.toString());
+    try {
+      await ref.putFile(File(_image!.path));
+      _imgUrl = await ref.getDownloadURL();
+    } catch (e) {
+      print("error: $e");
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("فشل التحميل"),
+        ),
+      );
+    }
   }
 }
