@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kiswa/donations/screen/add_donation.dart';
+import 'package:kiswa/donations/screen/get_my_donations.dart';
 
 class DonationScreen extends StatefulWidget {
   const DonationScreen({super.key});
@@ -59,7 +60,7 @@ class _DonationScreenState extends State<DonationScreen>
               },
               children: [
                 AddDonation(),
-                const Center(child: Text('will come from firestore')),
+                MyDonations(),
               ],
             ),
           ),
