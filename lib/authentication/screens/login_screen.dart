@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:kiswa/cache/cache_helper.dart';
 import 'package:kiswa/consts/colors.dart';
 import 'package:kiswa/firebase/authentication/auth_services.dart';
 import 'package:kiswa/home/screens/home_screen.dart';
@@ -21,6 +22,12 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _password = TextEditingController();
   bool _obscureText = true;
   bool _rememberMe = false;
+
+  void initState() {
+    super.initState();
+    CacheData.setData(key: "firstTime", value: false);
+  }
+
 
   @override
   void dispose() {
