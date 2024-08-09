@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # kiswa
 
 A new Flutter project.
