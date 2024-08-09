@@ -67,6 +67,17 @@ class _MyDonationsState extends State<MyDonations> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
+                      donation['email'],
+                      style: const TextStyle(
+                        color: green,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Text(
                       donation['description'],
                       textDirection: TextDirection.rtl,
                     ),

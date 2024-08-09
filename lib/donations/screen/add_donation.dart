@@ -184,7 +184,8 @@ class _AddDonationState extends State<AddDonation> {
           "imgUrl": _imgUrl,
           "description": description.text,
           "time": DateTime.now(),
-          "id": FirebaseAuth.instance.currentUser!.uid
+          "id": FirebaseAuth.instance.currentUser!.uid,
+          "email": FirebaseAuth.instance.currentUser!.email,
         },
       );
       ScaffoldMessenger.of(context).showSnackBar(
