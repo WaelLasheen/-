@@ -133,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           const SnackBar(content: Text('Sign-in Successful')));
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute(
-                          builder: (context) => const HomeScreen(),
+                          builder: (context) => const MainApp(),
                         ),
                       );
 

@@ -121,7 +121,7 @@ class _SighupScreenState extends State<SighupScreen> {
                           const SnackBar(content: Text('Sign-up Successful')));
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute(
-                          builder: (context) => const HomeScreen(),
+                          builder: (context) => const MainApp(),
                         ),
                       );
 

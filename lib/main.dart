@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // theme: ThemeData(fontFamily: "Roboto"),
       debugShowCheckedModeBanner: false,
-      home: FirebaseAuth.instance.currentUser == null ? (CacheData.getData(key: "firstTime") != null? const LoginScreen() :  Logo()) : const HomeScreen(),
+      home: FirebaseAuth.instance.currentUser == null ? (CacheData.getData(key: "firstTime") != null? const LoginScreen() :  Logo()) : const MainApp(),
     );
   }
 }

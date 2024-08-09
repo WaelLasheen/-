@@ -6,14 +6,14 @@ import 'package:kiswa/donations/screen/donation_screen.dart';
 import 'package:kiswa/homescreens/screen1.dart';
 import 'package:kiswa/setting/screens/settings.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class MainApp extends StatefulWidget {
+  const MainApp({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<MainApp> createState() => _MainAppState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _MainAppState extends State<MainApp> {
   int currentPageIndex = 3;
 
   @override
