@@ -4,14 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:kiswa/authentication/screens/login_screen.dart';
 import 'package:kiswa/cache/cache_helper.dart';
 import 'package:kiswa/firebase_options.dart';
-import 'package:kiswa/home/screens/home_screen.dart';
+import 'package:kiswa/home/screens/main_app.dart';
 import 'package:kiswa/splash/logo.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheData.init();
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,);
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -24,7 +25,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // theme: ThemeData(fontFamily: "Roboto"),
       debugShowCheckedModeBanner: false,
-      home: FirebaseAuth.instance.currentUser == null ? (CacheData.getData(key: "firstTime") != null? const LoginScreen() :  Logo()) : const MainApp(),
+      home: FirebaseAuth.instance.currentUser == null
+          ? (CacheData.getData(key: "firstTime") != null
+              ? const LoginScreen()
+              : Logo())
+          : const MainApp(),
     );
   }
 }

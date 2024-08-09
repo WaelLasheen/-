@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kiswa/homescreens/screen1.dart';
-import 'package:kiswa/homescreens/screen3.dart';
+import 'package:kiswa/consts/colors.dart';
 
 class screen2 extends StatefulWidget {
   @override
@@ -34,134 +33,12 @@ class Achives extends State<screen2> {
     String currentMonthName = monthNames[currentMonth - 1];
 
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Row(
-          children: [
-            Stack(
-              children: [
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.notifications_sharp,
-                      size: 35,
-                    )),
-                const Positioned(
-                    left: 23,
-                    top: 12,
-                    child: Icon(
-                      Icons.circle,
-                      color: Color(0xFF84BF60),
-                      size: 10,
-                    ))
-              ],
-            ),
-            CircleAvatar(
-              backgroundColor: Color(0XFF84BF60),
-              child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.add,
-                    color: Colors.white,
-                  )),
-            )
-          ],
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-            child: RichText(
-              text: const TextSpan(
-                  text: " أهلا",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 30.0,
-                      fontFamily: "Roboto",
-                      fontWeight: FontWeight.w900),
-                  children: [
-                    TextSpan(
-                        text: "إسراء ",
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Color(0XFF84BF60),
-                            fontFamily: "Roboto",
-                            fontWeight: FontWeight.bold))
-                  ]),
-            ),
-          ),
-        ],
-      ),
       body: SingleChildScrollView(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    MaterialButton(
-                      onPressed: () {
-                        setState(() {
-                          selectindex = 0;
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => screen1()));
-                        });
-                      },
-                      child: Text(
-                        "مقالات التوعية",
-                        style: TextStyle(
-                            color: selectindex == 0
-                                ? Color(0xFF1F201C)
-                                : Color(0XFF848787),
-                            fontSize: 30),
-                      ),
-                    ),
-                    MaterialButton(
-                      onPressed: () {
-                        setState(() {
-                          selectindex = 1;
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => screen2()));
-                        });
-                      },
-                      child: Text(
-                        "إنجازات الشهر",
-                        style: TextStyle(
-                            color: selectindex == 1
-                                ? Color(0xFF1F201C)
-                                : Color(0XFF848787),
-                            fontSize: 30),
-                      ),
-                    ),
-                    MaterialButton(
-                      onPressed: () {
-                        setState(() {
-                          selectindex = 2;
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => screen3()));
-                        });
-                      },
-                      child: Text(
-                        "أبرز المتابعين",
-                        style: TextStyle(
-                            color: selectindex == 2
-                                ? Color(0xFF1F201C)
-                                : Color(0XFF848787),
-                            fontSize: 30),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Image.asset(
@@ -173,7 +50,7 @@ class Achives extends State<screen2> {
                   text: TextSpan(
                       text: "تقرير شهر",
                       style: const TextStyle(
-                          color: Color(0xFF1F201C),
+                          color: black,
                           fontSize: 20,
                           fontFamily: "Roboto",
                           fontWeight: FontWeight.bold),
@@ -181,7 +58,7 @@ class Achives extends State<screen2> {
                     TextSpan(
                         text: currentMonthName,
                         style: const TextStyle(
-                            color: Color(0XFF84BF60),
+                            color: green,
                             fontFamily: "Roboto",
                             fontSize: 20,
                             fontWeight: FontWeight.bold))
@@ -200,7 +77,7 @@ class Achives extends State<screen2> {
               const Text(
                 ":إحصائيات التبرعات",
                 style: TextStyle(
-                    color: Color(0XFF1F201C),
+                    color: black,
                     fontFamily: "Roboto",
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
@@ -215,7 +92,7 @@ class Achives extends State<screen2> {
               const Text(
                 ":توزيع التبرعات",
                 style: TextStyle(
-                    color: Color(0XFF1F201C),
+                    color: black,
                     fontFamily: "Roboto",
                     fontSize: 20,
                     fontWeight: FontWeight.bold),

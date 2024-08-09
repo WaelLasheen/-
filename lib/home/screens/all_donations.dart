@@ -3,14 +3,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kiswa/consts/colors.dart';
 
-class MyDonations extends StatefulWidget {
-  const MyDonations.AllDonations({super.key});
+class AllDonations extends StatefulWidget {
+  const AllDonations({super.key});
 
   @override
-  State<MyDonations> createState() => _MyDonationsState();
+  State<AllDonations> createState() => _AllDonationsState();
 }
 
-class _MyDonationsState extends State<MyDonations> {
+class _AllDonationsState extends State<AllDonations> {
   CollectionReference _refrence =
       FirebaseFirestore.instance.collection('donations');
 

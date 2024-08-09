@@ -60,7 +60,7 @@ class _DonationScreenState extends State<DonationScreen>
               },
               children: [
                 AddDonation(),
-                MyDonations(),
+                const MyDonations(),
               ],
             ),
           ),
