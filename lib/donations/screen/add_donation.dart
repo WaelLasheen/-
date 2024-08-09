@@ -66,15 +66,15 @@ class _AddDonationState extends State<AddDonation> {
             margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 18),
             width: MediaQuery.of(context).size.width,
             child: ElevatedButton(
-              onPressed: () async{
+              onPressed: () async {
                 print(description.text);
-                if (_image != null){
+                if (_image != null) {
                   print(_image!.path);
                   setState(() => _loading = true);
                   await uploadImage();
-                  print(">>>>>>>>>>>>>>>  url  "+_imgUrl);
+                  print(">>>>>>>>>>>>>>>  url  " + _imgUrl);
                   await addDonation();
-                  setState((){
+                  setState(() {
                     _loading = false;
                     _imgUrl = "";
                     _image = null;
@@ -179,10 +179,17 @@ class _AddDonationState extends State<AddDonation> {
 
   Future<void> addDonation() async {
     try {
-      await FirebaseFirestore.instance
-          .collection("donations")
-          .doc()
-          .set({"imgUrl": _imgUrl, "description": description.text ,"time":DateTime.now() ,"id":FirebaseAuth.instance.currentUser!.uid});
+      await FirebaseFirestore.instance.collection("donations").doc().set(
+        {
+          "imgUrl": _imgUrl,
+          "description": description.text,
+          "time": DateTime.now(),
+          "id": FirebaseAuth.instance.currentUser!.uid
+        },
+      );
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("تم تحميل التبرع")),
+      );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("فشل التحميل التبرع")),
