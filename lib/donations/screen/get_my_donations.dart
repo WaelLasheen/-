@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kiswa/consts/colors.dart';
 
@@ -17,9 +19,9 @@ class _MyDonationsState extends State<MyDonations> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    _donationsStream = _refrence.orderBy('time', descending: true).snapshots();
+    String userID = FirebaseAuth.instance.currentUser!.uid;
+    _donationsStream = _refrence.orderBy('time', descending: true).where('id',isEqualTo: userID).snapshots();
   }
 
   @override
@@ -28,6 +30,7 @@ class _MyDonationsState extends State<MyDonations> {
       stream: _donationsStream,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
+          print("error \n\n ${snapshot.error} \n\n");
           return const Center(child: Text('Something went wrong'));
         }
 
@@ -63,12 +66,20 @@ class _MyDonationsState extends State<MyDonations> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(donation['description'] , textDirection: TextDirection.rtl,),
+                    Text(
+                      donation['description'],
+                      textDirection: TextDirection.rtl,
+                    ),
                     const SizedBox(
                       height: 12,
                     ),
-                    Image.network(
-                      donation['imgUrl'],
+                    CachedNetworkImage(
+                      imageUrl: donation['imgUrl'],
+                      placeholder: (context, url) => const Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
                     ),
                   ],
                 ),

@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -181,7 +182,7 @@ class _AddDonationState extends State<AddDonation> {
       await FirebaseFirestore.instance
           .collection("donations")
           .doc()
-          .set({"imgUrl": _imgUrl, "description": description.text ,"time":DateTime.now()});
+          .set({"imgUrl": _imgUrl, "description": description.text ,"time":DateTime.now() ,"id":FirebaseAuth.instance.currentUser!.uid});
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("فشل التحميل التبرع")),
