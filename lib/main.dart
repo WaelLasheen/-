@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kiswa/chats/chat1.dart';
+import 'package:kiswa/Notifications/Notification.dart';
+
 import 'package:kiswa/homescreens/screen1.dart';
-import 'package:kiswa/homescreens/screen2.dart';
+
 import 'package:kiswa/splash/logo.dart';
 import 'package:kiswa/splash/page1.dart';
 import 'package:kiswa/splash/page2.dart';
@@ -18,6 +19,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         theme: ThemeData(fontFamily: "Roboto"),
         debugShowCheckedModeBanner: false,
-        home: chat1());
+        home: Logo());
   }
 }

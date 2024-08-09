@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kiswa/Notifications/Notification.dart';
 import 'package:kiswa/homescreens/screen2.dart';
 import 'package:kiswa/homescreens/screen3.dart';
 
@@ -12,7 +13,7 @@ class screen3 extends StatefulWidget {
 }
 
 class followers extends State<screen3> {
-  int selectindex = 0;
+  int selectindex = 2;
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +24,12 @@ class followers extends State<screen3> {
               Stack(
                 children: [
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return notification();
+                        }));
+                      },
                       icon: const Icon(
                         Icons.notifications_sharp,
                         size: 35,
@@ -86,19 +92,20 @@ class followers extends State<screen3> {
                         onPressed: () {
                           setState(() {
                             selectindex = 0;
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => screen1()));
                           });
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => screen1()),
+                          );
                         },
                         child: Text(
                           "مقالات التوعية",
                           style: TextStyle(
-                              color: selectindex == 0
-                                  ? Color(0xFF1F201C)
-                                  : Color(0XFF848787),
-                              fontSize: 30),
+                            color: selectindex == 0
+                                ? Color(0xFF1F201C)
+                                : Color(0XFF848787),
+                            fontSize: 30,
+                          ),
                         ),
                       ),
                       MaterialButton(
@@ -106,36 +113,51 @@ class followers extends State<screen3> {
                           setState(() {
                             selectindex = 1;
                           });
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return screen2();
-                          }));
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => screen2()),
+                          );
                         },
-                        child: Text("إنجازات الشهر",
-                            style: TextStyle(
-                              color: selectindex == 1
-                                  ? Color(0xFF1F201C)
-                                  : Color(0XFF848787),
-                              fontSize: 30,
-                            )),
+                        child: Text(
+                          "إنجازات الشهر",
+                          style: TextStyle(
+                            color: selectindex == 1
+                                ? Color(0xFF1F201C)
+                                : Color(0XFF848787),
+                            fontSize: 30,
+                          ),
+                        ),
                       ),
                       MaterialButton(
                         onPressed: () {
                           setState(() {
                             selectindex = 2;
                           });
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => screen3()));
                         },
                         child: Text(
                           "أبرز المتبرعين",
                           style: TextStyle(
-                              color: selectindex == 2
-                                  ? Color(0xFF1F201C)
-                                  : Color(0XFF848787),
-                              fontSize: 30),
+                            color: selectindex == 2
+                                ? Color(0xFF1F201C)
+                                : Color(0XFF848787),
+                            fontSize: 30,
+                          ),
+                        ),
+                      ),
+                      MaterialButton(
+                        onPressed: () {
+                          setState(() {
+                            selectindex = 3;
+                          });
+                        },
+                        child: Text(
+                          "كل التبرعات",
+                          style: TextStyle(
+                            color: selectindex == 3
+                                ? Color(0xFF1F201C)
+                                : Color(0XFF848787),
+                            fontSize: 30,
+                          ),
                         ),
                       ),
                     ],

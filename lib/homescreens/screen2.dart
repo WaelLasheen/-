@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kiswa/Notifications/Notification.dart';
 import 'package:kiswa/homescreens/screen1.dart';
 import 'package:kiswa/homescreens/screen3.dart';
 
@@ -10,7 +11,7 @@ class screen2 extends StatefulWidget {
 }
 
 class Achives extends State<screen2> {
-  int selectindex = 0;
+  int selectindex = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,12 @@ class Achives extends State<screen2> {
             Stack(
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return notification();
+                      }));
+                    },
                     icon: const Icon(
                       Icons.notifications_sharp,
                       size: 35,
@@ -105,57 +111,72 @@ class Achives extends State<screen2> {
                       onPressed: () {
                         setState(() {
                           selectindex = 0;
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => screen1()));
                         });
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => screen1()),
+                        );
                       },
                       child: Text(
                         "مقالات التوعية",
                         style: TextStyle(
-                            color: selectindex == 0
-                                ? Color(0xFF1F201C)
-                                : Color(0XFF848787),
-                            fontSize: 30),
+                          color: selectindex == 0
+                              ? Color(0xFF1F201C)
+                              : Color(0XFF848787),
+                          fontSize: 30,
+                        ),
                       ),
                     ),
                     MaterialButton(
                       onPressed: () {
                         setState(() {
                           selectindex = 1;
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => screen2()));
                         });
                       },
                       child: Text(
                         "إنجازات الشهر",
                         style: TextStyle(
-                            color: selectindex == 1
-                                ? Color(0xFF1F201C)
-                                : Color(0XFF848787),
-                            fontSize: 30),
+                          color: selectindex == 1
+                              ? Color(0xFF1F201C)
+                              : Color(0XFF848787),
+                          fontSize: 30,
+                        ),
                       ),
                     ),
                     MaterialButton(
                       onPressed: () {
                         setState(() {
                           selectindex = 2;
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => screen3()));
+                        });
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => screen3()),
+                        );
+                      },
+                      child: Text(
+                        "أبرز المتبرعين",
+                        style: TextStyle(
+                          color: selectindex == 2
+                              ? Color(0xFF1F201C)
+                              : Color(0XFF848787),
+                          fontSize: 30,
+                        ),
+                      ),
+                    ),
+                    MaterialButton(
+                      onPressed: () {
+                        setState(() {
+                          selectindex = 3;
                         });
                       },
                       child: Text(
-                        "أبرز المتابعين",
+                        "كل التبرعات",
                         style: TextStyle(
-                            color: selectindex == 2
-                                ? Color(0xFF1F201C)
-                                : Color(0XFF848787),
-                            fontSize: 30),
+                          color: selectindex == 3
+                              ? Color(0xFF1F201C)
+                              : Color(0XFF848787),
+                          fontSize: 30,
+                        ),
                       ),
                     ),
                   ],

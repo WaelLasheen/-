@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kiswa/Notifications/Notification.dart';
 import 'package:kiswa/homescreens/screen2.dart';
 import 'package:kiswa/homescreens/screen3.dart';
 
@@ -18,6 +19,8 @@ class articles extends State<screen1> {
     "assets/images/Frame 88.png",
     "assets/images/Frame 89.png"
   ];
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -27,29 +30,37 @@ class articles extends State<screen1> {
             Stack(
               children: [
                 IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.notifications_sharp,
-                      size: 35,
-                    )),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return notification();
+                    }));
+                  },
+                  icon: const Icon(
+                    Icons.notifications_sharp,
+                    size: 35,
+                  ),
+                ),
                 const Positioned(
-                    left: 23,
-                    top: 12,
-                    child: Icon(
-                      Icons.circle,
-                      color: Color(0xFF84BF60),
-                      size: 10,
-                    ))
+                  left: 23,
+                  top: 12,
+                  child: Icon(
+                    Icons.circle,
+                    color: Color(0xFF84BF60),
+                    size: 10,
+                  ),
+                ),
               ],
             ),
             CircleAvatar(
               backgroundColor: Color(0XFF84BF60),
               child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.add,
-                    color: Colors.white,
-                  )),
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
+              ),
             )
           ],
         ),
@@ -58,21 +69,25 @@ class articles extends State<screen1> {
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
             child: RichText(
               text: const TextSpan(
-                  text: " أهلا",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 30.0,
+                text: " أهلا",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 30.0,
+                  fontFamily: "Roboto",
+                  fontWeight: FontWeight.w900,
+                ),
+                children: [
+                  TextSpan(
+                    text: "إسراء ",
+                    style: TextStyle(
+                      fontSize: 30,
+                      color: Color(0XFF84BF60),
                       fontFamily: "Roboto",
-                      fontWeight: FontWeight.w900),
-                  children: [
-                    TextSpan(
-                        text: "إسراء ",
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Color(0XFF84BF60),
-                            fontFamily: "Roboto",
-                            fontWeight: FontWeight.bold))
-                  ]),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -90,17 +105,16 @@ class articles extends State<screen1> {
                     onPressed: () {
                       setState(() {
                         selectindex = 0;
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => screen1()));
                       });
                     },
                     child: Text(
                       "مقالات التوعية",
                       style: TextStyle(
-                          color: selectindex == 0
-                              ? Color(0xFF1F201C)
-                              : Color(0XFF848787),
-                          fontSize: 30),
+                        color: selectindex == 0
+                            ? Color(0xFF1F201C)
+                            : Color(0XFF848787),
+                        fontSize: 30,
+                      ),
                     ),
                   ),
                   MaterialButton(
@@ -108,34 +122,55 @@ class articles extends State<screen1> {
                       setState(() {
                         selectindex = 1;
                       });
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return screen2();
-                      }));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => screen2()),
+                      );
                     },
-                    child: Text("إنجازات الشهر",
-                        style: TextStyle(
-                          color: selectindex == 1
-                              ? Color(0xFF1F201C)
-                              : Color(0XFF848787),
-                          fontSize: 30,
-                        )),
+                    child: Text(
+                      "إنجازات الشهر",
+                      style: TextStyle(
+                        color: selectindex == 1
+                            ? Color(0xFF1F201C)
+                            : Color(0XFF848787),
+                        fontSize: 30,
+                      ),
+                    ),
                   ),
                   MaterialButton(
                     onPressed: () {
                       setState(() {
                         selectindex = 2;
                       });
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => screen3()));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => screen3()),
+                      );
                     },
                     child: Text(
                       "أبرز المتبرعين",
                       style: TextStyle(
-                          color: selectindex == 2
-                              ? Color(0xFF1F201C)
-                              : Color(0XFF848787),
-                          fontSize: 30),
+                        color: selectindex == 2
+                            ? Color(0xFF1F201C)
+                            : Color(0XFF848787),
+                        fontSize: 30,
+                      ),
+                    ),
+                  ),
+                  MaterialButton(
+                    onPressed: () {
+                      setState(() {
+                        selectindex = 3;
+                      });
+                    },
+                    child: Text(
+                      "كل التبرعات",
+                      style: TextStyle(
+                        color: selectindex == 3
+                            ? Color(0xFF1F201C)
+                            : Color(0XFF848787),
+                        fontSize: 30,
+                      ),
                     ),
                   ),
                 ],
