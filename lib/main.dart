@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:kiswa/authentication/screens/login_screen.dart';
 import 'package:kiswa/cache/cache_helper.dart';
 import 'package:kiswa/firebase_options.dart';
-import 'package:kiswa/home/screens/main_app.dart';
+import 'package:kiswa/app/main_app.dart';
 import 'package:kiswa/splash/logo.dart';
 
 void main() async {

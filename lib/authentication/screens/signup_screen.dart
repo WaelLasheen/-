@@ -7,7 +7,7 @@ import 'package:kiswa/cache/cache_helper.dart';
 import 'package:kiswa/consts/colors.dart';
 import 'package:kiswa/consts/images.dart';
 import 'package:kiswa/firebase/authentication/auth_services.dart';
-import 'package:kiswa/home/screens/main_app.dart';
+import 'package:kiswa/app/main_app.dart';
 import 'package:kiswa/authentication/screens/login_screen.dart';
 import 'package:kiswa/authentication/widgets/login_with.dart';
 import 'package:kiswa/authentication/widgets/text_feild.dart';
