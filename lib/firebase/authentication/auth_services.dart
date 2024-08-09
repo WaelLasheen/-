@@ -38,6 +38,13 @@ class AuthServices{
     } catch (e) {
       print(e.toString());
     }
+  
   }
-
+  Future<void> forgetPassword(String email) async {
+    try {
+      return await _auth.sendPasswordResetEmail(email: email);
+    } catch (e) {
+      print(e.toString());
+    }
+  }
 }

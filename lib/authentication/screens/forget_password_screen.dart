@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:kiswa/consts/colors.dart';
 import 'package:kiswa/consts/images.dart';
 import 'package:kiswa/authentication/widgets/text_feild.dart';
+import 'package:kiswa/firebase/authentication/auth_services.dart';
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});
@@ -40,7 +41,10 @@ class _ForgetPasswordState extends State<ForgetPassword> {
           children: [
             const Text(
               'اعادة تعيين كلمة المرور',
-              style: TextStyle(fontSize: 18 ,color: Colors.grey ,fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold),
             ),
             textFeild(
               hint: 'أدخل البريد الالكتروني ',
@@ -49,14 +53,25 @@ class _ForgetPasswordState extends State<ForgetPassword> {
               obscureText: false,
               obscureIcon: const SizedBox(),
             ),
-            Image.asset(Forget_Password ,scale: 1.1,),
+            Image.asset(
+              Forget_Password,
+              scale: 1.1,
+            ),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 18),
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
-                onPressed: () {
-                  // modify it latter for forget password  <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+                onPressed: () async {
                   print(_email.text);
+                  await AuthServices().forgetPassword(_email.text);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text(
+                          'تم ارسال رابط استعادة كلمة المرور الي بريدك الالكتروني'),
+                    ),
+                  );
+                  
+                  Navigator.of(context).pop();
                 },
                 style: const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(green),
