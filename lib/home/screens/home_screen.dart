@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kiswa/consts/colors.dart';
 import 'package:kiswa/home/screens/all_donations.dart';
-import 'package:kiswa/homescreens/screen1.dart';
-import 'package:kiswa/homescreens/screen2.dart';
-import 'package:kiswa/homescreens/screen3.dart';
+import 'package:kiswa/home/screens/screen1.dart';
+import 'package:kiswa/home/screens/screen2.dart';
+import 'package:kiswa/home/screens/screen3.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

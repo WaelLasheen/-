@@ -3,7 +3,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:kiswa/chat/chat.dart';
 import 'package:kiswa/consts/colors.dart';
 import 'package:kiswa/donations/screen/donation_screen.dart';
-import 'package:kiswa/homescreens/home_screen.dart';
+import 'package:kiswa/home/screens/home_screen.dart';
 import 'package:kiswa/setting/screens/settings.dart';
 
 class MainApp extends StatefulWidget {
