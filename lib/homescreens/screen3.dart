@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kiswa/consts/colors.dart';
 import 'package:kiswa/homescreens/screen2.dart';
-import 'package:kiswa/homescreens/screen3.dart';
 
 import 'screen1.dart';
 
@@ -33,13 +33,13 @@ class followers extends State<screen3> {
                       top: 12,
                       child: Icon(
                         Icons.circle,
-                        color: Color(0xFF84BF60),
+                        color: green,
                         size: 10,
                       ))
                 ],
               ),
               CircleAvatar(
-                backgroundColor: Color(0XFF84BF60),
+                backgroundColor: green,
                 child: IconButton(
                     onPressed: () {},
                     icon: const Icon(
@@ -65,7 +65,7 @@ class followers extends State<screen3> {
                           text: "إسراء ",
                           style: TextStyle(
                               fontSize: 30,
-                              color: Color(0XFF84BF60),
+                              color: green,
                               fontFamily: "Roboto",
                               fontWeight: FontWeight.bold))
                     ]),
@@ -96,8 +96,8 @@ class followers extends State<screen3> {
                           "مقالات التوعية",
                           style: TextStyle(
                               color: selectindex == 0
-                                  ? Color(0xFF1F201C)
-                                  : Color(0XFF848787),
+                                  ? black
+                                  : litegrey,
                               fontSize: 30),
                         ),
                       ),
@@ -114,8 +114,8 @@ class followers extends State<screen3> {
                         child: Text("إنجازات الشهر",
                             style: TextStyle(
                               color: selectindex == 1
-                                  ? Color(0xFF1F201C)
-                                  : Color(0XFF848787),
+                                  ? black
+                                  : litegrey,
                               fontSize: 30,
                             )),
                       ),
@@ -133,8 +133,8 @@ class followers extends State<screen3> {
                           "أبرز المتبرعين",
                           style: TextStyle(
                               color: selectindex == 2
-                                  ? Color(0xFF1F201C)
-                                  : Color(0XFF848787),
+                                  ? black
+                                  : litegrey,
                               fontSize: 30),
                         ),
                       ),

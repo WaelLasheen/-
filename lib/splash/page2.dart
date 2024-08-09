@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kiswa/splash/page1.dart';
 import 'package:kiswa/splash/page3.dart';
 
 class Page2 extends StatelessWidget {
