@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kiswa/Notifications/Notification.dart';
 import 'package:kiswa/homescreens/screen2.dart';
-import 'package:kiswa/homescreens/screen3.dart';
 
 import 'screen1.dart';
 
@@ -138,22 +137,6 @@ class followers extends State<screen3> {
                           "أبرز المتبرعين",
                           style: TextStyle(
                             color: selectindex == 2
-                                ? Color(0xFF1F201C)
-                                : Color(0XFF848787),
-                            fontSize: 30,
-                          ),
-                        ),
-                      ),
-                      MaterialButton(
-                        onPressed: () {
-                          setState(() {
-                            selectindex = 3;
-                          });
-                        },
-                        child: Text(
-                          "كل التبرعات",
-                          style: TextStyle(
-                            color: selectindex == 3
                                 ? Color(0xFF1F201C)
                                 : Color(0XFF848787),
                             fontSize: 30,

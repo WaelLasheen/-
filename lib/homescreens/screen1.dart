@@ -157,22 +157,6 @@ class articles extends State<screen1> {
                       ),
                     ),
                   ),
-                  MaterialButton(
-                    onPressed: () {
-                      setState(() {
-                        selectindex = 3;
-                      });
-                    },
-                    child: Text(
-                      "كل التبرعات",
-                      style: TextStyle(
-                        color: selectindex == 3
-                            ? Color(0xFF1F201C)
-                            : Color(0XFF848787),
-                        fontSize: 30,
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),

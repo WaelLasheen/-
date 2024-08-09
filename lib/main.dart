@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kiswa/Notifications/Notification.dart';
 
-import 'package:kiswa/homescreens/screen1.dart';
-
 import 'package:kiswa/splash/logo.dart';
-import 'package:kiswa/splash/page1.dart';
-import 'package:kiswa/splash/page2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +15,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         theme: ThemeData(fontFamily: "Roboto"),
         debugShowCheckedModeBanner: false,
-        home: Logo());
+        home: notification());
   }
 }
