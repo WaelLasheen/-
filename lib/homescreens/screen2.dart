@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kiswa/Notifications/Notification.dart';
-import 'package:kiswa/homescreens/screen1.dart';
-import 'package:kiswa/homescreens/screen3.dart';
+
+import 'package:kiswa/widgets/Customappbar.dart';
+
+import 'package:kiswa/widgets/buttons.dart';
 
 class screen2 extends StatefulWidget {
   @override
@@ -11,7 +12,12 @@ class screen2 extends StatefulWidget {
 }
 
 class Achives extends State<screen2> {
-  int selectindex = 1;
+  int _selectindex = 1;
+  _onIndexChanged(int index) {
+    setState(() {
+      _selectindex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,136 +41,17 @@ class Achives extends State<screen2> {
     String currentMonthName = monthNames[currentMonth - 1];
 
     return Scaffold(
-      appBar: AppBar(
+      appBar: Customappbar(
         automaticallyImplyLeading: false,
-        title: Row(
-          children: [
-            Stack(
-              children: [
-                IconButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return notification();
-                      }));
-                    },
-                    icon: const Icon(
-                      Icons.notifications_sharp,
-                      size: 35,
-                    )),
-                const Positioned(
-                    left: 23,
-                    top: 12,
-                    child: Icon(
-                      Icons.circle,
-                      color: Color(0xFF84BF60),
-                      size: 10,
-                    ))
-              ],
-            ),
-            CircleAvatar(
-              backgroundColor: Color(0XFF84BF60),
-              child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.add,
-                    color: Colors.white,
-                  )),
-            )
-          ],
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-            child: RichText(
-              text: const TextSpan(
-                  text: " أهلا",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 30.0,
-                      fontFamily: "Roboto",
-                      fontWeight: FontWeight.w900),
-                  children: [
-                    TextSpan(
-                        text: "إسراء ",
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Color(0XFF84BF60),
-                            fontFamily: "Roboto",
-                            fontWeight: FontWeight.bold))
-                  ]),
-            ),
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    MaterialButton(
-                      onPressed: () {
-                        setState(() {
-                          selectindex = 0;
-                        });
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => screen1()),
-                        );
-                      },
-                      child: Text(
-                        "مقالات التوعية",
-                        style: TextStyle(
-                          color: selectindex == 0
-                              ? Color(0xFF1F201C)
-                              : Color(0XFF848787),
-                          fontSize: 30,
-                        ),
-                      ),
-                    ),
-                    MaterialButton(
-                      onPressed: () {
-                        setState(() {
-                          selectindex = 1;
-                        });
-                      },
-                      child: Text(
-                        "إنجازات الشهر",
-                        style: TextStyle(
-                          color: selectindex == 1
-                              ? Color(0xFF1F201C)
-                              : Color(0XFF848787),
-                          fontSize: 30,
-                        ),
-                      ),
-                    ),
-                    MaterialButton(
-                      onPressed: () {
-                        setState(() {
-                          selectindex = 2;
-                        });
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => screen3()),
-                        );
-                      },
-                      child: Text(
-                        "أبرز المتبرعين",
-                        style: TextStyle(
-                          color: selectindex == 2
-                              ? Color(0xFF1F201C)
-                              : Color(0XFF848787),
-                          fontSize: 30,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+              Buttons(
+                selectedIndex: _selectindex,
+                onIndexChanged: _onIndexChanged,
               ),
               SizedBox(
                 height: 20,
