@@ -16,7 +16,7 @@ class _ChatsState extends State<Chats> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const appbar(
-        automaticallyImplyLeading: false,
+        back: false,
         title: "المحادثات",
       ),
       body: Padding(

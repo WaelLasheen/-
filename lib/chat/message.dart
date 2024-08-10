@@ -7,7 +7,7 @@ class Messages extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const appbar(
-        automaticallyImplyLeading: false,
+        back: true,
         title: "مؤسسة مرسال الخيرية",
       ),
       body: SingleChildScrollView(
