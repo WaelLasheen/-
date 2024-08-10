@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -156,7 +157,29 @@ class _SighupScreenState extends State<SighupScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // handel function later
-                  LoginWith(image: Google, onTap: () {}),
+                  LoginWith(
+                      image: Google,
+                      onTap: () async {
+                        _loading = true;
+                        UserCredential? user = await AuthServices().signInWithGoogle();
+                        if (user != null) {
+                          _loading = false;
+                          // Sign-in successful
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text('Sign-in Successful')));
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => const MainApp(),
+                            ),
+                          );
+                        } else {
+                          _loading = false;
+                          // Sign-in failed
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('Sign-in Failed')));
+                        }
+                      }),
                   LoginWith(image: Facebook, onTap: () {}),
                   LoginWith(image: LinkedIn, onTap: () {}),
                 ],
