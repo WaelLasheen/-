@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kiswa/authentication/screens/login_screen.dart';
 import 'package:kiswa/authentication/screens/signup_screen.dart';
-import 'package:kiswa/splash/page1.dart';
 
 class Page4 extends StatelessWidget {
   @override

@@ -1,36 +1,71 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:kiswa/chat/appbar.dart';
+import 'package:kiswa/chat/chat_iteam';
+import 'package:kiswa/chat/message.dart';
 
-class chat1 extends StatelessWidget {
+class Chats extends StatefulWidget {
+  @override
+  State<Chats> createState() {
+    return _ChatsState();
+  }
+}
+
+class _ChatsState extends State<Chats> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          actions: const [
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                "مؤسسه مرسال الخيرية",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 25,
-                    fontFamily: "Roboto",
-                    fontWeight: FontWeight.bold),
-              ),
+      appBar: const appbar(
+        back: false,
+        title: "المحادثات",
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(8),
+        child: Column(
+          children: [
+            const TextField(
+              scrollPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              textAlign: TextAlign.right,
+              decoration: InputDecoration(
+                  hintText: "البحث",
+                  suffixIcon: Icon(Icons.search),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(40)),
+                      borderSide: BorderSide(color: Colors.grey)),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(40)),
+                      borderSide: BorderSide(color: Colors.grey))),
+            ),
+            Expanded(
+              child: ListView(children: [
+                MaterialButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return Messages();
+                    }));
+                  },
+                  child: const ChatItem(
+                    title: 'مؤسسة مرسال الخيرية',
+                    message: "مرحبا ! نحن من جمعية مرسال الخيرية, نود إخباركم",
+                    date: 'أمس',
+                    imageUrl: 'assets/images/chat1.png',
+                  ),
+                ),
+                const Divider(),
+                const ChatItem(
+                  title: 'مبادرة ظلال',
+                  message: 'سعدون بأنك ستساهم معنا! سنتأكد من أن...',
+                  date: '7/7/24',
+                  imageUrl: 'assets/images/chat2.png',
+                ),
+                const Divider(),
+                Image.asset("assets/images/chat3.png")
+              ]),
             )
           ],
         ),
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Image.asset(
-                  "assets/images/Frame_487-removebg-preview.png",
-                )
-              ],
-            ),
-          ),
-        ));
+      ),
+    );
   }
 }
