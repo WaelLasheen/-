@@ -22,7 +22,7 @@ class _MainAppState extends State<MainApp> {
       body: <Widget>[
         const Settings(),
         const DonationScreen(),
-        chat1(),
+        Chats(),
         const HomeScreen(),
       ][currentPageIndex],
       bottomNavigationBar: CurvedNavigationBar(

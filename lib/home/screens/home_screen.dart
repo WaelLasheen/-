@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:kiswa/notifications/notification.dart';
 import 'package:kiswa/consts/colors.dart';
 import 'package:kiswa/home/screens/all_donations.dart';
 import 'package:kiswa/home/screens/screen1.dart';
@@ -14,7 +15,8 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
   late PageController _pageController;
 
@@ -54,7 +56,13 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 Stack(
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => notification(),
+                          ),
+                        );
+                      },
                       icon: const Icon(
                         Icons.notifications_sharp,
                         size: 35,
@@ -111,7 +119,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               ),
             ],
           ),
-
           TabBar(
             controller: _tabController,
             tabs: const [
