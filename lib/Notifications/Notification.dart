@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kiswa/Notifications/chats.dart';
 import 'package:kiswa/homescreens/screen1.dart';
 
+import '../widgets/appbar.dart';
+
 class notification extends StatefulWidget {
   @override
   State<notification> createState() {
@@ -13,28 +15,8 @@ class Notification extends State<notification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        centerTitle: true,
-        title: const Text(
-          "الاشعارات",
-          style: TextStyle(
-              fontSize: 25, fontFamily: "Roboto", fontWeight: FontWeight.bold),
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return screen1();
-                }));
-              },
-              icon: const Icon(
-                Icons.arrow_forward,
-                size: 25,
-                color: Colors.black,
-              ))
-        ],
-      ),
+      appBar:
+          const appbar(title: "الاشعارات", automaticallyImplyLeading: false),
       body: Column(
         textDirection: TextDirection.rtl,
         children: [

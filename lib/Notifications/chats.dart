@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kiswa/Notifications/Notification.dart';
 import 'package:kiswa/Notifications/messages.dart';
+import 'package:kiswa/widgets/appbar.dart';
 import 'package:kiswa/widgets/chatitem.dart';
 
 class Chats extends StatefulWidget {
@@ -15,29 +16,9 @@ class _ChatsState extends State<Chats> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: const appbar(
         automaticallyImplyLeading: false,
-        centerTitle: true,
-        title: const Text(
-          "المحادثات",
-          style: TextStyle(
-              fontSize: 25, fontFamily: "Roboto", fontWeight: FontWeight.bold),
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {
-                setState(() {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return notification();
-                  }));
-                });
-              },
-              icon: const Icon(
-                Icons.arrow_forward,
-                size: 25,
-                color: Colors.black,
-              ))
-        ],
+        title: "المحادثات",
       ),
       body: Padding(
         padding: EdgeInsets.all(8),

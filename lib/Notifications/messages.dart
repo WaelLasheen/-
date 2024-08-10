@@ -1,27 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:kiswa/widgets/appbar.dart';
 
 class Messages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: const appbar(
         automaticallyImplyLeading: false,
-        centerTitle: true,
-        title: const Text(
-          "مؤسسة مرسال الخيرية",
-          style: TextStyle(
-              fontSize: 25, fontFamily: "Roboto", fontWeight: FontWeight.bold),
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.arrow_forward,
-                size: 25,
-                color: Colors.black,
-              ))
-        ],
+        title: "مؤسسة مرسال الخيرية",
       ),
       body: SingleChildScrollView(
         child: Padding(
